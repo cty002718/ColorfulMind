@@ -52,7 +52,8 @@ public class HeroController : MonoBehaviour
 
         Inventory.instance = new Inventory();
         inventory = Inventory.instance;
-        uiInventory.SetInventory(inventory);
+        if(uiInventory)
+            uiInventory.SetInventory(inventory);
 
     }
 

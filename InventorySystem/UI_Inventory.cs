@@ -31,8 +31,11 @@ public class UI_Inventory : MonoBehaviour
     }
 
     public void SelectFirstButton() {
-        firstButton.Select();
-        firstButton.OnSelect(null);
+        if (inventory.GetItemList().Count != 0)
+        {
+            firstButton.Select();
+            firstButton.OnSelect(null);
+        }
     }
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
