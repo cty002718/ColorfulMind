@@ -53,7 +53,7 @@ public class QuestManager : MonoBehaviour
 
     	for(int i=0;i<questObjects.Length;i++) {
     		if(questObjects[i].CheckActivation()) {
-    			questObjects[i].DoSomething();
+    			questObjects[i].OnComplete();
     		}
     	}
     }

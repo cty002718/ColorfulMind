@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestObjectActivator : MonoBehaviour
+public abstract class QuestObjectActivator : MonoBehaviour
 {
 	//public GameObject objectToActivate;
 
@@ -21,7 +21,7 @@ public class QuestObjectActivator : MonoBehaviour
         if(!initCheck) {
         	initCheck = true;
         	if(CheckActivation()) {
-        		doSomething();
+        		OnComplete();
         	}
         }
     }
@@ -33,9 +33,8 @@ public class QuestObjectActivator : MonoBehaviour
 	    		activation = false;
 
 	    return activation;
+
     }
 
-    public void doSomething() {
-    	
-    }
+    public abstract void OnComplete();
 }
