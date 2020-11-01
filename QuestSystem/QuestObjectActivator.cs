@@ -8,6 +8,7 @@ public abstract class QuestObjectActivator : MonoBehaviour
 
 	public string[] questToCheck;
 	bool initCheck = false;
+    public bool isActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,9 @@ public abstract class QuestObjectActivator : MonoBehaviour
     {
         if(!initCheck) {
         	initCheck = true;
-        	if(CheckActivation()) {
+        	if(!isActive && CheckActivation()) {
         		OnComplete();
+                isActive = true;
         	}
         }
     }

@@ -52,8 +52,9 @@ public class QuestManager : MonoBehaviour
     	QuestObjectActivator[] questObjects = FindObjectsOfType<QuestObjectActivator>();
 
     	for(int i=0;i<questObjects.Length;i++) {
-    		if(questObjects[i].CheckActivation()) {
+    		if(!questObjects[i].isActive && questObjects[i].CheckActivation()) {
     			questObjects[i].OnComplete();
+                questObjects[i].isActive = true;
     		}
     	}
     }
