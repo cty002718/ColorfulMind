@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
 	    	speaker = "";
 	    	foreach(JsonData key in line.Keys) {
 	    		speaker = key.ToString();
+				//Debug.Log(speaker);
 	    	}
 
 	    	StopAllCoroutines();

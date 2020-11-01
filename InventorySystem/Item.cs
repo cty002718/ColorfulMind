@@ -8,25 +8,26 @@ public class Item
 {
     public enum ItemType 
     {
-        Sword,
-        HealthPotion,
-        ManaPotion,
-        Coin,
-        Medkit,
+        Book,
+        Heart,
     }
 
     public ItemType itemType;
     public int amount;
-    string description;
+    public string description;
+    public ItemController itemController;
+
+    public void SetController() {
+        switch(itemType) {
+            case ItemType.Book: itemController = new BookController(); break;
+            default: itemController = null; break;
+        }
+    }
 
     public string GetDialoguePath() {
         switch(itemType) {
             default:
-            case ItemType.Sword: return ItemAssets.Instance.swordDialoguePath;
-            case ItemType.HealthPotion: return ItemAssets.Instance.healthPotionDialoguePath;
-            case ItemType.ManaPotion: return ItemAssets.Instance.manaPotionDialoguePath;
-            case ItemType.Coin: return ItemAssets.Instance.coinDialoguePath;
-            case ItemType.Medkit: return ItemAssets.Instance.medkitDialoguePath;
+            case ItemType.Book: return ItemAssets.Instance.bookDialoguePath;
 
         }
     }
@@ -34,11 +35,8 @@ public class Item
         switch(itemType)
         {
             default:
-            case ItemType.Sword: return ItemAssets.Instance.swordSprite;
-            case ItemType.HealthPotion: return ItemAssets.Instance.healthPotionSprite;
-            case ItemType.ManaPotion: return ItemAssets.Instance.manaPotionSprite;
-            case ItemType.Coin: return ItemAssets.Instance.coinSprite;
-            case ItemType.Medkit: return ItemAssets.Instance.medkitSprite;        
+            case ItemType.Book: return ItemAssets.Instance.bookSprite;   
+            case ItemType.Heart: return ItemAssets.Instance.heartSprite;    
         }
     }
 
@@ -47,13 +45,7 @@ public class Item
         switch(itemType)
         {
             default:
-            case ItemType.Coin:
-            case ItemType.HealthPotion:
-            case ItemType.ManaPotion:
                 return true;
-            case ItemType.Sword:
-            case ItemType.Medkit:
-                return false;
         }
     }
 }

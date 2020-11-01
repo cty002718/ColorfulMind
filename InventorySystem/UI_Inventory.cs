@@ -7,6 +7,7 @@ using TMPro;
 
 public class UI_Inventory : MonoBehaviour
 {
+    public static UI_Inventory instance;
     Inventory inventory;
     Transform itemSlotContainer;
     Transform itemSlotTemplate;
@@ -15,6 +16,7 @@ public class UI_Inventory : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         itemSlotContainer = transform.Find("itemSlotContainer");
         descriptionContainer = transform.Find("description");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
@@ -57,6 +59,10 @@ public class UI_Inventory : MonoBehaviour
         foreach(Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+            Button button = itemSlotRectTransform.GetComponent<Button>();
+            if(item.itemController != null) {
+                button.onClick.AddListener(delegate {item.itemController.UseItem();});
+            }
             itemSlotRectTransform.gameObject.SetActive(true);
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, -y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("Image").GetComponent<Image>();
@@ -74,7 +80,7 @@ public class UI_Inventory : MonoBehaviour
             }
  
             if(first) {
-                firstButton = itemSlotRectTransform.GetComponent<Button>();
+                firstButton = button;
                 first = false;
             }
 

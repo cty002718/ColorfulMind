@@ -19,7 +19,7 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //UpdateQuestObjects();
     }
 
     public int GetQuestNumber(string questToFind) {

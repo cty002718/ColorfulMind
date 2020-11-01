@@ -13,17 +13,9 @@ public class ItemAssets : MonoBehaviour
 
     public Transform pfItemWorld;
 
-    public Sprite swordSprite;
-    public Sprite healthPotionSprite;
-    public Sprite manaPotionSprite;
-    public Sprite coinSprite;
-    public Sprite medkitSprite;
+    public Sprite bookSprite;
+    public Sprite heartSprite;
 
-    public string swordDialoguePath = "swordDialogue";
-    public string healthPotionDialoguePath = "healthPotionDialogue";
-    public string manaPotionDialoguePath = "manaPotionDialogue";
-    public string coinDialoguePath = "coinDialogue";
-    public string medkitDialoguePath = "medkitDialogue";
-
+    public string bookDialoguePath;
 
 }
